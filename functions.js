@@ -55,3 +55,53 @@ favouriteMovie("Odyssey", 2022, false);
 favouriteMovie("Brave new world", 2025);
 favouriteMovie("Fast X", 2023);
 favouriteMovie("Iron Man 3", 2013);
+
+const Cubed = function Square(n) {
+  return n * n * n;
+};
+
+console.log(Cubed(5));
+
+function CheckEven(n) {
+  return n % 2 == 0;
+}
+// % is a modulus operator, it gives the remainder of a value
+// 5 % 2: it's going to give an output of 1, cause that is the remainder
+console.log(CheckEven(7));
+
+function evenOrOdd(number) {
+  return number % 2 == 0 ? "Even" : "Odd";
+}
+
+//Anonymus Fucntion
+// a function wihthout a name
+
+const Greet = function (greet) {
+  return `${greet}`;
+};
+
+console.log(Greet("Good Morning"));
+
+// Callbacks =  a callback is a functuon that is being called uin another function
+
+function sayHello(callback) {
+  console.log("hello");
+  callback();
+}
+
+function sayName() {
+  console.log("Mathew");
+}
+
+sayHello(sayName);
+
+function getCharcter(callback, firstname, lastname) {
+  let combine = firstname + lastname;
+  callback(combine);
+}
+
+function getFullname(combination) {
+  console.log(combination);
+}
+
+getCharcter(getFullname, "E", "E");
