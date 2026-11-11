@@ -72,7 +72,7 @@ let grandParents = {
 console.log(grandParents);
 console.log(grandParents.name);
 console.log(grandParents.age);
-console.log(grandParents.salary);
+console.log(grandParents["salary"]);
 console.log(grandParents.greet());
 console.log(grandParents["parent"]);
 console.log(grandParents.parent["name"]);

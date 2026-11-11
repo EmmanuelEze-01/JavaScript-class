@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="changeTheme('light')">Light</button>
+    <button onclick="changeTheme('dark')">Dark</button>
+    <form id="test-form">
+      <input type="text" placeholder="Drink name" id="dn" />
+      <input type="number" placeholder="First Price" id="fp" />
+      <input type="number" placeholder="Second Price" id="sp" />
+      <input type="number" placeholder="amountPerCrate" id="apc" />
+      <button type="submit">Send</button>
+    </form>
+
+    <h2 id="text"></h2>
+    <button onclick="reduce()">Reduce</button>
+    <script defer>
+      localStorage.setItem("Name", "Emmanuel");
+      console.log(localStorage.getItem("Name"));
+
+      function changeTheme(themeName) {
+        localStorage.setItem("Theme", themeName);
+        ct();
+      }
+
+      ct();
+      function ct() {
+        let theme = localStorage.getItem("Theme");
+
+        if (theme == "light") {
+          document.body.style.background = "#999e8e";
+          document.body.style.color = "#333";
+        } else if (theme == "dark") {
+          document.body.style.background = "#333";
+          document.body.style.color = "#999e8e";
+        }
+      }
+
+      info = {
+        name: "Emmanuel",
+        age: 15,
+        isSingle: true,
+        futureAmbition: "Software Engineer",
+        institutuionChoice: "FUTO",
+        friends: {
+          name: "Wealth",
+          age: 15,
+          futureAmbition: "Software Engineer",
+          institutuionChoice: "AUN",
+        },
+      };
+      localStorage.setItem("information", JSON.stringify(info));
+
+      let frs = JSON.parse(localStorage.getItem("information"));
+      console.log(frs);
+
+      console.log(info);
+
+      ps = 15500;
+      drinks = {
+        nb: [
+          {
+            id: 100,
+            name: "Heineken",
+            priceOne: 15500,
+            priceTwo: 16000,
+            amountPerCrate: 12,
+          },
+          {
+            id: 101,
+            name: "Legend",
+            priceOne: 14000,
+            priceTwo: 14500,
+            amountPerCrate: 12,
+          },
+          {
+            id: 100,
+            name: "Desperados",
+            priceOne: 21000,
+            priceTwo: 21500,
+            amountPerCrate: 20,
+          },
+        ],
+      };
+
+      // document.getElementById("text").textContent = JSON.stringify(
+      //   drinks,
+      //   2,
+      //   null,
+      // );
+      document.getElementById("text").textContent = localStorage.getItem("dls");
+
+      const tFrm = document.getElementById("test-form");
+
+      tFrm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        genid = drinks.nb.length;
+
+        dname = document.getElementById("dn").value;
+        fPrice = document.getElementById("fp").value;
+        sprice = document.getElementById("sp").value;
+        amntPC = document.getElementById("apc").value;
+
+        drinks.nb.push({
+          id: genid + 101,
+          name: dname,
+          priceOne: fPrice,
+          priceTwo: sprice,
+          amountPerCrate: amntPC,
+        });
+
+        localStorage.setItem("dls", JSON.stringify(drinks));
+        document.getElementById("text").textContent =
+          localStorage.getItem("dls");
+      });
+
+      // localStorage.clear()
+
+      function reduce() {
+        drinks.nb[0].amountPerCrate -= 1;
+        localStorage.setItem("dls", JSON.stringify(drinks));
+        document.getElementById("text").textContent =
+          localStorage.getItem("dls");
+      }
+      console.log(drinks);
+    </script>
+  </body>
+</html>

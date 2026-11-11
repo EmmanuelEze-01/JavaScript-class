@@ -18,3 +18,11 @@ const watchMovie = (name, genre, year) => {
 };
 
 watchMovie("Scream", "Horror", 1966);
+
+let number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const evenNumber = number.filter((element) => {
+  return element % 2 == 0;
+});
+
+console.log(evenNumber);

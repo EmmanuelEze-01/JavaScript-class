@@ -127,3 +127,16 @@ const [firstGame, secondGame, ...extraGrames] = games;
 console.log(firstGame);
 console.log(secondGame);
 console.log(extraGrames);
+
+setInterval(() => {
+  console.log("I am Emmanuel");
+}, 1000);
+
+// == it checks for the value only
+// console.log(10 == '10) it's going to give an output of true because it compares the value regardless of the
+// dataype so 10 is a number and '10' is a string but the vaules are the same.
+
+
+// === it checks for the values and data type
+// console.log(10 === '10') it's going to give an otput of false, although the values are the same, the datatype
+// are diffrent
